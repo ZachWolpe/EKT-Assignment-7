@@ -1,4 +1,4 @@
-* --- - --- - --- - --- - --- - --- Assignment 7 --- - --- - --- - --- - --- - ---;
+* --- - --- - --- - --- - --- - --- - --- - --- Assignment 7 --- - --- - --- - --- - --- - --- - --- - ---;
 
 title 'Assignment 7';
 proc import
@@ -15,8 +15,27 @@ proc import
 	replace;
 run;
 
-proc print data=desc (obs=10);
-run;
-
 proc print data=model2016 (obs=10);
 run;
+
+* 2.A Using proc logistic;
+
+proc logistic data=mod;
+	*class gmesc;
+	model d8s = q55as;
+run;	
+
+d8s	gmesc	q55as	q50b_7s	nd5s	rq34_1s
+
+
+
+
+
+
+
+
+
+
+
+
+	
