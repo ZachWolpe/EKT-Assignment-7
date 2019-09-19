@@ -51,19 +51,26 @@ proc sgplot data=a;
 run;
 
 
-proc logistic data = a ;
-model chd(event="1") = age / outroc=roc1 lackfit; 
-output out=b p=pred ;
-run ;
+proc logistic data=a;
+	model chd(event='1') = age /outroc=rocl lackfit;
+	output out=b p=pred;
+run;
+
+proc iml;
+use a;
+read all into xy;
+n=nrow(xy);
+x=J(n,1,1)||xy[,1];
+y=xy[,2];
+
+print x y;
 
 
-proc iml ;
- use a ;
-  read all into xy ;
+* compute log odd;
+p = mean(y);
+o = p/(1-p);
+lnodds = log(o);
 
- n= nrow(xy) ;
- x = J(n,1,1) || xy[,1];
- y = xy[,2] ;
 
 quit ;
 
