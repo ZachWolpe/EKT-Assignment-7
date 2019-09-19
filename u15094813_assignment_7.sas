@@ -15,6 +15,8 @@ proc import
 	replace;
 run;
 
+* -------------------------- Question 1 --------------------------;
+
 proc print data=model2016 (obs=10);
 run;
 
