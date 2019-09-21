@@ -3,7 +3,7 @@
 title 'Assignment 7';
 proc import
 	datafile='/folders/myfolders/sasuser.v94/EKT 720/Assignment 7/description.xls'
-	dbms=xls
+	dbms=xls 
 	out=desc
 	replace;
 run;
